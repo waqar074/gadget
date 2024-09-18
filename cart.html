@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gadget Shop - Cart</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('photo/bgh.jpg') no-repeat center center/cover;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: orange;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: orange;
+        }
+
+        /* Cart Section */
+        .cart-container {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .cart-container h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: orange;
+        }
+
+        .cart-item img {
+         width: 100%;
+         max-width: 200px; /* Maximum width */
+         height: auto; /* Maintain aspect ratio */
+        }
+
+        .cart-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: left;
+            position: relative;
+        }
+
+        .cart-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .cart-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .cart-item p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .cart-item .btn-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+ 
+        .cart-item .decrease-btn,
+        .cart-item .increase-btn,
+        .cart-item .remove-btn {
+            padding: 5px 10px;
+            border: none;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        
+        .cart-item .increase-btn,
+        .cart-item .decrease-btn {
+            background-color: green;
+            color: white;
+        }
+
+        .cart-item .increase-btn:hover
+        ,.cart-item .decrease-btn {
+            background-color: darkgreen;
+        }
+
+        .cart-item .remove-btn {
+            background-color: red;
+            color: white;
+        }
+
+        .cart-item .remove-btn:hover {
+            background-color: darkred;
+        }
+
+        /* Total Price Section */
+        .total-price {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #ffffff;
+        }
+
+        /* Checkout Button */
+        .checkout-btn {
+            padding: 10px 20px;
+            background-color: orange;
+            border: none;
+            color: rgb(0, 0, 0);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background-color: #e68a00;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            padding-bottom: 20px;
+        }
+
+        #Footer {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #Footer .flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        #Footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px;
+        }
+
+        #Footer li {
+            margin-bottom: 8px;
+        }
+
+        #Footer .font-bold {
+            font-weight: bold;
+            color: orange;
+        }
+
+        #Footer .hover\:underline:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">The Gadget Shop</div>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="pro.html">Profile</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="login.html">Log Out</a></li>
+            <!-- <li class="cart"><a href="#">Cart</a></li> -->
+        </ul>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="cart-container">
+        <h2>Your Cart</h2>
+        <div class="cart-items">
+            <!-- Sample Cart Item -->
+            <div class="cart-item">
+                <img src="photo/pc.jpeg" alt="Musical Instruments">
+                <h3>PC</h3>
+                <p>Price: ₹500/day</p>
+                <p>Rental Days: <span class="rental-days">1</span></p>
+                <div class="btn-group">
+                    <button class="increase-btn" onclick="increaseDays(this)">Increase Days</button>
+                    <button class="decrease-btn" onclick="decreaseDays(this)">Decrease Days</button>
+                    <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <img src="photo/drone2.jpeg" alt="Microphones">
+                <h3>Drone</h3>
+                <p>Price: ₹1850/day</p>
+                <p>Rental Days: <span class="rental-days">1</span></p>
+                <div class="btn-group">
+                    <button class="increase-btn" onclick="increaseDays(this)">Increase Days</button>
+                    <button class="decrease-btn" onclick="decreaseDays(this)">Decrease Days</button>
+                    <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <img src="photo/home1.jpg" alt="Microphones">
+                <h3>Microwave</h3>
+                <p>Price: ₹750/day</p>
+                <p>Rental Days: <span class="rental-days">1</span></p>
+                <div class="btn-group">
+                    <button class="increase-btn" onclick="increaseDays(this)">Increase Days</button>
+                    <button class="decrease-btn" onclick="decreaseDays(this)">Decrease Days</button>
+                    <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <img src="photo/display.webp" alt="Microphones">
+                <h3>Display</h3>
+                <p>Price: ₹600/day</p>
+                <p>Rental Days: <span class="rental-days">1</span></p>
+                <div class="btn-group">
+                    <button class="increase-btn" onclick="increaseDays(this)">Increase Days</button>
+                    <button class="decrease-btn" onclick="decreaseDays(this)">Decrease Days</button>
+                    <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+            <!-- Add more cart items similarly -->
+        </div>
+
+        <!-- Total Price -->
+        <div class="total-price">
+            Total: ₹<span id="total-price">0</span>
+        </div>
+
+        <!-- Checkout Button -->
+        <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 The Gadget Shop. All rights reserved.</p>
+        <!-- New Footer Content -->
+        <div id="Footer">
+            <div class="flex">
+                <ul>
+                    <li class="font-bold">Rent</li>
+                    <li class="hover:underline">How it Works</li>
+                    <li class="hover:underline">Gadget Categories</li>
+                    <li class="hover:underline">Pricing Plans</li>
+                    <li class="hover:underline">Customer Support</li>
+                </ul>
+                <ul>
+                    <li class="font-bold">Lease</li>
+                    <li class="hover:underline">Lease a Gadget</li>
+                    <li class="hover:underline">Lease Terms</li>
+                    <li class="hover:underline">Upgrade Options</li>
+                </ul>
+                <ul>
+                    <li class="font-bold">About Us</li>
+                    <li class="hover:underline">Our Story</li>
+                    <li class="hover:underline">Press & Media</li>
+                    <li class="hover:underline">Careers</li>
+                    <li class="hover:underline">Sustainability</li>
+                </ul>
+                <ul>
+                    <li class="font-bold">Policies</li>
+                    <li class="hover:underline">Privacy Policy</li>
+                    <li class="hover:underline">Terms of Service</li>
+                    <li class="hover:underline">FAQs</li>
+                </ul>
+                <ul>
+                    <li class="font-bold">Contact Us</li>
+                    <li class="hover:underline">Customer Service</li>
+                    <li class="hover:underline">Live Chat</li>
+                    <li class="hover:underline">Email Support</li>
+                    <li class="hover:underline">Find a Store</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Calculate the total price
+        function calculateTotal() {
+            let total = 0;
+            const cartItems = document.querySelectorAll('.cart-item');
+            cartItems.forEach(item => {
+                const price = parseInt(item.querySelector('p:nth-child(3)').innerText.replace('Price: ₹', '').replace('/day', ''));
+                const days = parseInt(item.querySelector('.rental-days').innerText);
+                total += price * days;
+            });
+            document.getElementById('total-price').innerText = total;
+        }
+
+        // Increase rental days for an item
+        function increaseDays(button) {
+            const cartItem = button.parentElement.parentElement;
+            const rentalDaysElem = cartItem.querySelector('.rental-days');
+            let rentalDays = parseInt(rentalDaysElem.innerText);
+            rentalDays += 1;
+            rentalDaysElem.innerText = rentalDays;
+            calculateTotal();
+        }
+
+        function decreaseDays(button) {
+            const cartItem = button.parentElement.parentElement;
+            const rentalDaysElem = cartItem.querySelector('.rental-days');
+            let rentalDays = parseInt(rentalDaysElem.innerText);
+            rentalDays -= 1;
+            rentalDaysElem.innerText = rentalDays;
+            calculateTotal();
+        }
+
+        // Remove item from the cart
+        function removeItem(button) {
+            const cartItem = button.parentElement.parentElement;
+            cartItem.remove();
+            calculateTotal();
+        }
+
+        // Proceed to checkout
+        function checkout() {
+            alert('Proceeding to checkout...');
+            // Add your checkout logic here
+        }
+
+        // Initial calculation of the total price
+        calculateTotal();
+    </script>
+</body>
+</html>

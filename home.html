@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gadget Shop - Home</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: orange;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: orange;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('photo/bgh.jpg') no-repeat center center/cover;
+            color: white;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            background-color: orange;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .hero button:hover {
+            background-color: #e68a00;
+        }
+
+        /* Gadget Rental Section */
+        .rentals {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .rentals h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: orange;
+        }
+
+        .rental-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .rental-item {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .rental-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .rental-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .rental-item p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .rental-item button {
+            padding: 10px 20px;
+            background-color: orange;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .rental-item button:hover {
+            background-color: #e68a00;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            padding-bottom: 20px;
+        }
+
+        #Footer {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #Footer .flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        #Footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px;
+        }
+
+        #Footer li {
+            margin-bottom: 8px;
+        }
+
+        #Footer .font-bold {
+            font-weight: bold;
+            color: orange;
+        }
+
+        #Footer .hover\:underline:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .hero button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">The Gadget Shop</div>
+        <ul>
+            <li><a href="pro.html">Profile</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="login.html">Log Out</a></li>
+            <li class="cart"><a href="cart.html">🛒Cart</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1>Rent the Latest Gadgets</h1>
+            <p>Explore our wide range of gadgets at affordable rental prices.</p>
+            <button onclick="location.href='rea.html'">Explore Rentals</button>
+        </div>
+    </section>
+
+    <!-- Gadget Rental Section -->
+    <section id="rental-items" class="rentals">
+        <h2>Available for Rent</h2>
+        <div class="rental-grid">
+            <div class="rental-item">
+                <img src="photo/music.jpg" alt="Musical Instruments">
+                <h3>Musical Instruments</h3>
+                <p>Starting at ₹500/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class="rental-item">
+                <img src="photo/micro.jpeg" alt="Microphones">
+                <h3>Microphones</h3>
+                <p>Starting at ₹300/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class="rental-item">
+                <img src="photo/speaker.jpeg" alt="Speakers">
+                <h3>Speakers</h3>
+                <p>Starting at ₹400/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class="rental-item">
+                <img src="photo/pc.jpeg" alt="PC and Laptops">
+                <h3>PC and Laptops</h3>
+                <p>Starting at ₹1000/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class="rental-item">
+                <img src="photo/gaming.jpeg" alt="Gaming Consoles">
+                <h3>Gaming Consoles</h3>
+                <p>Starting at ₹800/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class="rental-item">
+                <img src="photo/display.webp" alt="Displays">
+                <h3>Displays</h3>
+                <p>Starting at ₹600/day</p>
+                <button>Rent Now</button>
+            </div>
+            <!-- Add more items similarly -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 The Gadget Shop. All rights reserved.</p>
+        <!-- New Footer Content -->
+        <div id="Footer">
+            <div class="flex">
+                <ul>
+                    <li class="font-bold">Rent</li>
+                    <li class="hover:underline">How it Works</li>
+                    <li class="hover:underline">Gadget Categories</li>
+                    <li class="hover:underline">Pricing Plans</li>
+                    <li class="hover:underline">Customer Support</li>
+                </ul>
+                <ul>
+                    <li class="font-bold">Lease</li>
+                    <li class="hover:underline">Lease a Gadget</li>
+                    <li class="hover:underline">Lease Terms</li>
+                    <li class="hover:underline">Upgrade Options</li>
+                </ul>
+                <ul>
+                    <li class="font-bold">About Us</li>
+                    <li class="hover:underline">Our Story</li>
+                    <li class="hover:underline">Press & Media</li>
+                    <li class="hover:underline">Careers</li>
+                    <li class="hover:underline">Sustainability</li>
+                </ul>
+                <ul>
+                    <li class="font-bold">Policies</li>
+                    <li class="hover:underline">Privacy Policy</li>
+                    <li class="hover:underline">Terms of Service</li>
+                    <li class="hover:underline">FAQs</li>
+                </ul>
+                <ul>
+                    <li class="font-bold">Contact Us</li>
+                    <li class="hover:underline">Customer Service</li>
+                    <li class="hover:underline">Live Chat</li>
+                    <li class="hover:underline">Email Support</li>
+                    <li class="hover:underline">Find a Store</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // You can add JavaScript code here if needed for further interactions
+    </script>
+</body>
+</html>
